@@ -1,0 +1,61 @@
+/* Tailwind v4 import */
+@import "tailwindcss";
+
+/* ----------------------------
+   Custom 3D Utilities
+---------------------------- */
+@utility perspective-1000 {
+  perspective: 1000px;
+}
+
+@utility rotate-y-3 {
+  transform: rotateY(3deg);
+}
+
+/* Input & Button Styles */
+@layer utilities {
+  input:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px theme(colors.fuchsia.500); /* fuchsia ring */
+  }
+
+  button:hover {
+    transform: scale(1.05);
+    transition: transform 0.3s;
+  }
+}
+
+/* Floating / Animate Effects */
+@utility animate-bounce {
+  animation: bounce 1s infinite;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+/* Optional Gradient Background */
+@utility bg-gradient-to-br {
+  background: linear-gradient(
+    to bottom right,
+    theme(colors.indigo.600),
+    theme(colors.violet.600),
+    theme(colors.fuchsia.500)
+  );
+  @keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.4s ease-out;
+}
+
+}
